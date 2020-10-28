@@ -5,7 +5,6 @@ pipeline {
             dir '.'
             registryUrl "https://hub.docker.com"
             registryCredentialsId 'dockershanem'
-            alwaysPull true
         }
         }
     stages {
