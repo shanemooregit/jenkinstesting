@@ -1,5 +1,13 @@
 pipeline {
-    agent { dockerfile true }
+    agent {
+        dockerfile {
+            filename 'Dockerfile'
+            dir '.'
+            registryUrl "https://hub.docker.com"
+            registryCredentialsId 'dockershanem'
+            alwaysPull true
+        }
+        }
     stages {
         stage('First stage') {
             steps {
