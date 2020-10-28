@@ -4,6 +4,7 @@ pipeline {
         stage('First stage') {
             steps {
                 echo "this is the first step"
+                jq '.' buildConfig.json
             }
         }
         stage('Second stage') {

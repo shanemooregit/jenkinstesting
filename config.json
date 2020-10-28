@@ -1,0 +1,20 @@
+{
+  "build": {
+    "product": {
+      "manifest_branch": "master-p",
+      "device": "product1",
+      "packages": [
+        {
+          "name": "org.mozilla.rocket.firefoxlite.apk",
+          "location": "directory/folder/structure/release/org.mozilla.rocket/firefoxlite",
+          "version": "latest"
+        },
+        {
+          "name": "com.second.test.product.apk",
+          "location": "directory/folder/structure/release/com/second/test/product",
+          "version": "latest"
+        }
+      ]
+    }
+  }
+}
