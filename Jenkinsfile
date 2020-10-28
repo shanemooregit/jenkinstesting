@@ -1,10 +1,10 @@
 pipeline {
-    agent any
+    agent { dockerfile true }
     stages {
         stage('First stage') {
             steps {
                 echo "this is the first step"
-                jq '.' buildConfig.json
+                jq --version
             }
         }
         stage('Second stage') {
