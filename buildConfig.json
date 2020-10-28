@@ -1,6 +1,6 @@
 {
   "build": {
-    "hubble": {
+    "product": {
       "manifest_branch": "master-p",
       "device": "product1",
       "packages": [
