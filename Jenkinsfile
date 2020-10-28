@@ -1,5 +1,10 @@
 pipeline {
-    agent { dockerfile true }
+    agent {
+         docker {
+             dir '.'
+             args '-v /var/run/docker.sock:/var/run/docker.sock'
+         }
+    }
     stages {
         stage('First stage') {
             steps {
