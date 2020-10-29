@@ -4,7 +4,7 @@ pipeline {
         stage('First stage') {
             steps {
                 echo "this is the first step"
-                jq --version]
+                jq --version
                 jq '.build.product' buildConfig.json
             }
         }
