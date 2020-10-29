@@ -1,2 +1,3 @@
 FROM ubuntu:18.04
-RUN apt install jq
+RUN apt-get update
+RUN apt-get -y install jq
