@@ -1,12 +1,9 @@
 pipeline {
-    agent {
-        docker { image 'node:14-alpine' }
-    }
+    agent { dockerfile true }
     stages {
         stage('First stage') {
             steps {
                 echo "this is the first step"
-                sh 'node --version'
                 //jq --version
             }
         }
