@@ -6,12 +6,12 @@
       "packages": [
         {
           "name": "org.mozilla.rocket.firefoxlite.apk",
-          "location": "directory/folder/structure/$environmentdir/org.mozilla.rocket/firefoxlite",
+          "location": "directory/folder/structure/environmentdir/org.mozilla.rocket/firefoxlite",
           "version": "latest"
         },
         {
           "name": "com.second.test.product.apk",
-          "location": "directory/folder/structure/$environmentdir/com/second/test/product",
+          "location": "directory/folder/structure/environmentdir/com/second/test/product",
           "version": "latest"
         }
       ]
