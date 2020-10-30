@@ -22,9 +22,10 @@ pipeline {
                         echo "My environment build is ${ENVIRONMENT_BUILD}"
                         sh "pwd"
                         sh "ls -lah"
-                        scripts {
+                        script {
                             if ( env.BRANCH_NAME == 'main'){
                                 ENVIRONMENT_BUILD = 'release'
+                                echo "My branch name is ${BRANCH_NAME}"
                             } else if ("${BRANCH_NAME}" == 'develop'){
                                 ENVIRONMENT_BUILD = 'staging'
                             }
