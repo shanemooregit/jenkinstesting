@@ -33,12 +33,21 @@ pipeline {
         }
         stage('Determine the environment') {
             steps {
-                echo "this is the second step"
-                sh label: "look at buildconfig",
-                    script: """
+                script {
+                    if (ENVIRONMENT_BUILD == 'release') {
                         jq '.build.product' buildConfig.json | sed -i 's/environmentdir/release/g' buildConfig.json
                         jq '.build.product' buildConfig.json
-                    """
+                    } else if (ENVIRONMENT_BUILD == 'staging') {
+                        jq '.build.product' buildConfig.json | sed -i 's/environmentdir/staging/g' buildConfig.json
+                        jq '.build.product' buildConfig.json
+                    }
+                }
+                //echo "this is the second step"
+                //sh label: "look at buildconfig",
+                //    script: """
+                //        jq '.build.product' buildConfig.json | sed -i 's/environmentdir/release/g' buildConfig.json
+                //        jq '.build.product' buildConfig.json
+                //    """
             }
         }
     }
