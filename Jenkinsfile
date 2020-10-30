@@ -4,7 +4,7 @@ pipeline {
         choice(name: 'BUILD_TARGET', choices: [ 'Apple', 'Banana', 'Orange'], description: 'Select a device to build, this is the name of the build option in buildConfig.json')  // first choice is default
     }
     environment {
-        ENVIRONMENT_BUILD = ""
+        ENVIRONMENT_BUILD = "EMPTY_BUILD"
     }
 
     stages {
