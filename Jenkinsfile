@@ -11,7 +11,6 @@ pipeline {
                     echo "My environment build is ${ENVIRONMENT_BUILD}"
                     sh "pwd"
                     sh "ls -lah"
-                }
             }
         }
         stage('Setup build configuration') {
