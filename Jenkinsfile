@@ -11,6 +11,8 @@ pipeline {
                 script {
                         echo "${BRANCH_NAME}"
                         echo "${ENVIRONMENT_BUILD}"
+                        pwd
+                        ls -lah
                         jq '.build.product' buildConfig.json
                 }
             }
