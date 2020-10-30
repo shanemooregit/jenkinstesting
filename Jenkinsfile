@@ -5,15 +5,31 @@ pipeline {
         choice(name: 'ENVIRONMENT_BUILD', choices: [ 'release', 'staging'], description: 'Select your environment to build')
     }
     environment {
-        ENVIRONMENT_TEXT = ""
+        ENVIRONMENT_BUILD = ""
     }
+
     stages {
-        stage('Check variables') {
+        when {
+            anyOf {
+                branch 'main';
+                branch 'develop'
+            }
+        }
+        stage('Check and setup variables') {
             steps {
-                    echo "My branch name is ${BRANCH_NAME}"
-                    echo "My environment build is ${ENVIRONMENT_BUILD}"
-                    sh "pwd"
-                    sh "ls -lah"
+                echo "My branch name is ${BRANCH_NAME}"
+                echo "My environment build is ${ENVIRONMENT_BUILD}"
+                sh "pwd"
+                sh "ls -lah"
+                scripts {
+                    if ("${BRANCH_NAME}" == 'main') {
+                        ENVIRONMENT_BUILD = 'release'
+                    } else if ("${BRANCH_NAME}" == 'develop') {
+                        ENVIRONMENT_BUILD = 'staging'
+                    }
+                }
+                echo "My branch name is ${BRANCH_NAME}"
+                echo "My environment build is ${ENVIRONMENT_BUILD}"
             }
         }
         stage('Setup build configuration') {
