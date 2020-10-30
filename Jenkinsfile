@@ -18,17 +18,17 @@ pipeline {
             stages {
                 stage('Check and setup variables') {
                     steps {
-                        echo "My branch name is "env.BRANCH_NAME""
+                        echo "My branch name is ${BRANCH_NAME}"
                         echo "My environment build is ${ENVIRONMENT_BUILD}"
                         sh "pwd"
                         sh "ls -lah"
-                        //scripts {
-                        //    if ("${BRANCH_NAME}" == 'main') {
-                        //        ENVIRONMENT_BUILD = 'release'
-                        //    } else if ("${BRANCH_NAME}" == 'develop') {
-                        //        ENVIRONMENT_BUILD = 'staging'
-                        //    }
-                        //}
+                        scripts {
+                            if ( env.BRANCH_NAME == 'main'){
+                                ENVIRONMENT_BUILD = 'release'
+                            } else if ("${BRANCH_NAME}" == 'develop'){
+                                ENVIRONMENT_BUILD = 'staging'
+                            }
+                        }
                         echo "My branch name is ${BRANCH_NAME}"
                         echo "My environment build is ${ENVIRONMENT_BUILD}"
                     }
