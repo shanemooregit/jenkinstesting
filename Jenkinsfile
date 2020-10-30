@@ -4,6 +4,9 @@ pipeline {
         choice(name: 'BUILD_TARGET', choices: [ 'Apple', 'Banana', 'Orange'], description: 'Select a device to build, this is the name of the build option in buildConfig.json')  // first choice is default
         choice(name: 'ENVIRONMENT_BUILD', choices: [ 'release', 'staging'], description: 'Select your environment to build')
     }
+    environment {
+        ENVIRONMENT_TEXT = ""
+    }
     stages {
         stage('Check variables') {
             steps {
@@ -33,21 +36,12 @@ pipeline {
         }
         stage('Determine the environment') {
             steps {
-                script {
-                    if (ENVIRONMENT_BUILD == 'release') {
-                        jq '.build.product' buildConfig.json | sed -i 's/environmentdir/release/g' buildConfig.json
-                        jq '.build.product' buildConfig.json
-                    } else if (ENVIRONMENT_BUILD == 'staging') {
-                        jq '.build.product' buildConfig.json | sed -i 's/environmentdir/staging/g' buildConfig.json
-                        jq '.build.product' buildConfig.json
-                    }
-                }
                 //echo "this is the second step"
-                //sh label: "look at buildconfig",
-                //    script: """
-                //        jq '.build.product' buildConfig.json | sed -i 's/environmentdir/release/g' buildConfig.json
-                //        jq '.build.product' buildConfig.json
-                //    """
+                sh label: "look at buildconfig",
+                    script: """
+                        jq '.build.product' buildConfig.json | sed -i "s/environmentdir/$ENVIRONMENT_BUILD/g" buildConfig.json
+                        jq '.build.product' buildConfig.json
+                    """
             }
         }
     }
