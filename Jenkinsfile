@@ -5,15 +5,20 @@ pipeline {
         choice(name: 'ENVIRONMENT_BUILD', choices: [ 'release', 'staging'], description: 'Select your environment to build')
     }
     stages {
+        stage('Check variables') {
+            steps {
+                    echo "My branch name is ${BRANCH_NAME}"
+                    echo "My environment build is ${ENVIRONMENT_BUILD}"
+                    sh "pwd"
+                    sh "ls -lah"
+                }
+            }
+        }
         stage('Setup build configuration') {
             steps {
                 echo "build config setup"
                 script {
-                        echo "${BRANCH_NAME}"
-                        echo "${ENVIRONMENT_BUILD}"
-                        pwd
-                        ls -lah
-                        jq '.build.product' buildConfig.json
+                        sh "jq '.build.product' buildConfig.json"
                 }
             }
         }
