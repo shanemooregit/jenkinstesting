@@ -6,6 +6,7 @@ pipeline {
     }
     environment {
         ENVIRONMENT_BUILD = "EMPTY_BUILD"
+        BUILD_TARGET_LIST = 'Cat,Dog,Parrot,Bear'
     }
 
     stages {
@@ -20,6 +21,9 @@ pipeline {
                 stage("Set build name") {
                     steps {
                         script {
+                            for(int i=0; i<BUILD_TARGET_LIST.size(); i++) {
+                                echo "${BUILD_TARGET_LIST}"
+                            }
                             currentBuild.displayName = "${params.BUILD_TARGET} #${BUILD_NUMBER}"
                             currentBuild.description = "${params.BUILD_TARGET}-#${BUILD_NUMBER}-${params.BUILD_TYPE}"
                         }
