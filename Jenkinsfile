@@ -2,6 +2,7 @@ pipeline {
     agent { dockerfile true }
     parameters { 
         choice(name: 'BUILD_TARGET', choices: [ 'Apple', 'Banana', 'Orange'], description: 'Select a device to build, this is the name of the build option in buildConfig.json')  // first choice is default
+        choice(name: 'BUILD_TYPE', choices: ['cln', 'inc'], description: 'Choose either a clean or incremental build, clean is the default')
     }
     environment {
         ENVIRONMENT_BUILD = "EMPTY_BUILD"
@@ -16,6 +17,14 @@ pipeline {
                 }
             }
             stages {
+                stage("Set build name") {
+                    steps {
+                        script {
+                            currentBuild.displayName = "${params.BUILD_TARGET} #${BUILD_NUMBER}"
+                            currentBuild.description = "${params.BUILD_TARGET}-#${BUILD_NUMBER}-${params.BUILD_TYPE}"
+                        }
+                    }
+                }
                 stage('Check and setup variables') {
                     steps {
                         echo "My branch name is ${BRANCH_NAME}"
@@ -25,12 +34,11 @@ pipeline {
                         script {
                             if ( env.BRANCH_NAME == 'main'){
                                 ENVIRONMENT_BUILD = 'release'
-                                echo "My branch name is ${BRANCH_NAME}"
                             } else if ("${BRANCH_NAME}" == 'develop'){
                                 ENVIRONMENT_BUILD = 'staging'
                             }
                         }
-                        echo "My branch name is ${BRANCH_NAME}"
+                        echo "My branch name is now ${BRANCH_NAME}"
                         echo "My environment build is ${ENVIRONMENT_BUILD}"
                     }
                 }
