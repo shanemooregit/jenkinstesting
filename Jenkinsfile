@@ -21,9 +21,6 @@ pipeline {
                 stage("Set build name") {
                     steps {
                         script {
-                            for(int i=0; i<BUILD_TARGET_LIST.size(); i++) {
-                                echo "${BUILD_TARGET_LIST}"
-                            }
                             currentBuild.displayName = "${params.BUILD_TARGET} #${BUILD_NUMBER}"
                             currentBuild.description = "${params.BUILD_TARGET}-#${BUILD_NUMBER}-${params.BUILD_TYPE}"
                         }
@@ -33,6 +30,8 @@ pipeline {
                     steps {
                         echo "My branch name is ${BRANCH_NAME}"
                         echo "My environment build is ${ENVIRONMENT_BUILD}"
+                        echo "My Build is ${BUILD_TARGET}"
+                        echo "My type is ${BUILD_TYPE}"
                         sh "pwd"
                         sh "ls -lah"
                         script {
