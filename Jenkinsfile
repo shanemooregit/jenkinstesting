@@ -58,7 +58,7 @@ pipeline {
                         sh label: "check versions",
                             script: """
                                 jq --version
-                                jq '.build.product' buildConfig.json | sed -i "s/$ENVIRONMENT_BUILD/$ENVIRONMENT_BUILD/g" buildConfig.json
+                                jq '.build.product' buildConfig.json | sed -i "s/ENVIRONMENT_BUILD/$ENVIRONMENT_BUILD/g" buildConfig.json
                             """
                     }
                 }
