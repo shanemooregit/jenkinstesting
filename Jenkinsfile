@@ -6,7 +6,6 @@ pipeline {
     }
     environment {
         ENVIRONMENT_BUILD = "EMPTY_BUILD"
-        BUILD_TARGET_LIST = 'Cat,Dog,Parrot,Bear'
     }
 
     stages {
