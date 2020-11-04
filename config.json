@@ -313,52 +313,52 @@
       "packages": [
         {
           "name": "org.mozilla.rocket.firefoxlite.apk",
-          "location": "navico-android-release/instrument/bandg/ENVIRONMENT_BUILD/org.mozilla.rocket/firefoxlite",
+          "location": "navico-android-release/instrument/bandg/staging/org.mozilla.rocket/firefoxlite",
           "version": "latest"
         },
         {
           "name": "com.navico.neon.launcher.apk",
-          "location": "navico-android-release/instrument/bandg/ENVIRONMENT_BUILD/com/navico/neon/launcher",
+          "location": "navico-android-release/instrument/bandg/staging/com/navico/neon/launcher",
           "version": "latest"
         },
         {
           "name": "com.navico.neon.locationprovider.apk",
-          "location": "navico-android-release/mfd/shared/ENVIRONMENT_BUILD/com/navico/neon/location-provider",
+          "location": "navico-android-release/mfd/shared/staging/com/navico/neon/location-provider",
           "version": "latest"
         },
         {
           "name": "com.navico.neon.services.apk",
-          "location": "navico-android-release/shared/shared/ENVIRONMENT_BUILD/com/navico/neon/services",
+          "location": "navico-android-release/shared/shared/staging/com/navico/neon/services",
           "version": "latest"
         },
         {
           "name": "com.navico.neon.camera-discovery.apk",
-          "location": "navico-android-release/shared/shared/ENVIRONMENT_BUILD/com/navico/neon/camera-discovery",
+          "location": "navico-android-release/shared/shared/staging/com/navico/neon/camera-discovery",
           "version": "latest"
         },
         {
           "name": "com.navico.android.data.service.apk",
-          "location": "navico-android-release/shared/shared/ENVIRONMENT_BUILD/com/navico/neon/data.service",
+          "location": "navico-android-release/shared/shared/staging/com/navico/neon/data.service",
           "version": "latest"
         },
         {
           "name": "com.navico.neon.instruments-app.apk",
-          "location": "navico-android-release/instrument/bandg/ENVIRONMENT_BUILD/com/navico/neon/instruments-app",
+          "location": "navico-android-release/instrument/bandg/staging/com/navico/neon/instruments-app",
           "version": "latest"
         },
         {
           "name": "com.navico.neon.settings.apk",
-          "location": "navico-android-release/instrument/bandg/ENVIRONMENT_BUILD/com/navico/neon/settings",
+          "location": "navico-android-release/instrument/bandg/staging/com/navico/neon/settings",
           "version": "latest"
         },
         {
           "name": "com.navico.neon.settingsrestapi.apk",
-          "location": "navico-android-release/shared/bandg/ENVIRONMENT_BUILD/com/navico/neon/settingsrestapi",
+          "location": "navico-android-release/shared/bandg/staging/com/navico/neon/settingsrestapi",
           "version": "latest"
         },
         {
           "name": "com.navico.neon.onboarding.apk",
-          "location": "navico-android-release/instrument/bandg/ENVIRONMENT_BUILD/com/navico/neon/onboarding",
+          "location": "navico-android-release/instrument/bandg/staging/com/navico/neon/onboarding",
           "version": "latest"
         },
         {
