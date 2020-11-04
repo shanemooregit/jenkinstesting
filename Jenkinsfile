@@ -53,22 +53,20 @@ pipeline {
                         }
                     }
                 }
-                stage('First stage') {
+                stage('Replacement buildconfig variables') {
                     steps {
-                        echo "this is the first step"
                         sh label: "check versions",
                             script: """
                                 jq --version
-                                jq '.build.product' buildConfig.json
+                                jq '.build.product' buildConfig.json | sed -i "s/$ENVIRONMENT_BUILD/$ENVIRONMENT_BUILD/g" buildConfig.json
                             """
                     }
                 }
-                stage('Determine the environment') {
+                stage('Check the environment for change') {
                     steps {
                         //echo "this is the second step"
                         sh label: "look at buildconfig",
                             script: """
-                                jq '.build.product' buildConfig.json | sed -i "s/$ENVIRONMENT_BUILD/$ENVIRONMENT_BUILD/g" buildConfig.json
                                 jq '.build.product' buildConfig.json
                             """
                     }
