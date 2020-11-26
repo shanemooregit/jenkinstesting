@@ -7,7 +7,7 @@ pipeline {
     environment {
         ENVIRONMENT_BUILD = "EMPTY_BUILD"
 
-        VERSION_FILE "BALNK"
+        VERSION_FILE = "BALNK"
         VERSION_MODEL = "Naiad"
         VERSION_MAJOR = "1"
         VERSION_MINOR = "0"
