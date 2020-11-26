@@ -6,6 +6,13 @@ pipeline {
     }
     environment {
         ENVIRONMENT_BUILD = "EMPTY_BUILD"
+
+        VERSION_FILE "BALNK"
+        VERSION_MODEL = "Naiad"
+        VERSION_MAJOR = "1"
+        VERSION_MINOR = "0"
+        VERSION_NUMBER = "${BUILD_NUMBER}"
+        LUNCH_BUILD_TYPE = "user"
     }
 
     stages {
@@ -67,6 +74,14 @@ pipeline {
                         sh label: "look at buildconfig",
                             script: """
                                 jq '.build.product' buildConfig.json
+                            """
+                    }
+                }
+                stage('Do the versioning numbering stuff') {
+                    steps {
+                        sh  label: "Create Version File",
+                            script: """
+                                ./versionnumber.sh ${VERSION_FILE} ${VERSION_MAJOR} ${VERSION_MINOR} ${BUILD_NUMBER} ${VERSION_MODEL} ${LUNCH_BUILD_TYPE}
                             """
                     }
                 }
