@@ -1,0 +1,64 @@
+pipeline {
+    agent any
+    triggers {
+        cron('H 06 * * *')
+    }
+    stages {
+        stage('Build all jobs parallel') {
+            parallel {
+                stage('Build Hubble Staging') {
+                    steps {
+                        build(job: 'Neon Pipelines/aosp_build_neon/develop', parameters: [string(name: 'BUILD_TARGET', value: "hubble"), string(name: 'BUILD_TYPE', value: "cln")])
+                    }
+                }
+                stage('Build Hubble Release') {
+                    steps {
+                        build(job: 'Neon Pipelines/aosp_build_neon/master', parameters: [string(name: 'BUILD_TARGET', value: "hubble"), string(name: 'BUILD_TYPE', value: "cln")])
+                    }
+                }
+                stage('Build Hubble Factory') {
+                    steps {
+                        build(job: 'Neon Pipelines/aosp_build_neon/develop', parameters: [string(name: 'BUILD_TARGET', value: "hubble_factory"), string(name: 'BUILD_TYPE', value: "inc"), string(name: 'KEY_TYPE', value: "navico-debug")])
+                    }
+                }
+                stage('Build Naiad Staging') {
+                    steps {
+                        build(job: 'Neon Pipelines/aosp_build_neon/develop', parameters: [string(name: 'BUILD_TARGET', value: "naiad"), string(name: 'BUILD_TYPE', value: "cln")])
+                    }
+                }
+                stage('Build Naiad Release') {
+                    steps {
+                        build(job: 'Neon Pipelines/aosp_build_neon/master', parameters: [string(name: 'BUILD_TARGET', value: "naiad"), string(name: 'BUILD_TYPE', value: "cln")])
+                    }
+                }
+                stage('Build Naiad Factory') {
+                    steps {
+                        build(job: 'Neon Pipelines/aosp_build_neon/develop', parameters: [string(name: 'BUILD_TARGET', value: "naiad_factory"), string(name: 'BUILD_TYPE', value: "cln"), string(name: 'KEY_TYPE', value: "navico-debug")])
+                    }
+                }
+            }
+        }
+    }
+}
+
+pipeline {
+    agent any
+    triggers {
+        cron('H 06 * * *')
+    }
+    stages {
+        stage('Build all jobs parallel') {
+            parallel {
+                stage('Build Hubble Release 1.0') {
+                    steps {
+                        build(job: 'Neon Pipelines/aosp_build_neon/release/Nemesis_1.0', parameters: [string(name: 'BUILD_TARGET', value: "hubble"), string(name: 'BUILD_TYPE', value: "cln")])
+                    }
+                }
+                stage('Build Hubble Factory') {
+                    steps {
+                        build(job: 'Neon Pipelines/aosp_build_neon/release/Nemesis_1.0', parameters: [string(name: 'BUILD_TARGET', value: "hubble_factory"), string(name: 'BUILD_TYPE', value: "cln"), string(name: 'KEY_TYPE', value: "navico-debug")])
+                    }
+                }
+        }
+    }
+}
