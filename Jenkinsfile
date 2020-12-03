@@ -48,9 +48,9 @@ pipeline {
                             }
 
                             if ( env.BRANCH_NAME == "Apple" ){
-                                env.VERSION_MODEL = 'NAIAD'
+                                VERSION_MODEL = 'NAIAD'
                             } else if ( env.BRANCH_NAME == "Orange" ){
-                                env.VERSION_MODEL = 'Hubble'
+                                VERSION_MODEL = 'Hubble'
                             }
                         }
                         echo "My branch name is now ${BRANCH_NAME}"
