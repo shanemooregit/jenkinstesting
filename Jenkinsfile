@@ -47,9 +47,9 @@ pipeline {
                                 ENVIRONMENT_BUILD = 'staging'
                             }
 
-                            if ( params.BUILD_TARGET == "Apple" ){
+                            if ( env.BRANCH_NAME == "Apple" ){
                                 env.VERSION_MODEL = 'NAIAD'
-                            } else if ( params.BUILD_TARGET == "Orange" ){
+                            } else if ( env.BRANCH_NAME == "Orange" ){
                                 env.VERSION_MODEL = 'Hubble'
                             }
                         }
