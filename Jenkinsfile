@@ -7,10 +7,7 @@ pipeline {
     environment {
         ENVIRONMENT_BUILD = "EMPTY_BUILD"
         VERSION_FILE = "blank"
-
-
-        
-        VERSION_MODEL = "Naiad"
+        VERSION_MODEL = "TBCMODEL"
         VERSION_MAJOR = "1"
         VERSION_MINOR = "0"
         VERSION_NUMBER = "${BUILD_NUMBER}"
@@ -51,9 +48,9 @@ pipeline {
                             }
 
                             if (( "${params.BUILD_TARGET}" == "Apple" ) || ( "${params.BUILD_TARGET}" == "Banana" )) {
-                                env.VERSION_MODEL = "NAIAD"
+                                env.VERSION_MODEL = 'NAIAD'
                             } else if (( "${params.BUILD_TARGET}" == "Orange" ) || ( "${params.BUILD_TARGET}" == "hubble_factory" )) {
-                                env.VERSION_MODEL = "Hubble"
+                                env.VERSION_MODEL = 'Hubble'
                             }
                         }
                         echo "My branch name is now ${BRANCH_NAME}"
