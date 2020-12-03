@@ -47,10 +47,10 @@ pipeline {
                                 ENVIRONMENT_BUILD = 'staging'
                             }
 
-                            if ( params.BUILD_TARGET == "Apple" ){
-                                VERSION_MODEL = 'NAIAD'
-                            } else if ( params.BUILD_TARGET == "Orange" ){
-                                VERSION_MODEL = 'Hubble'
+                            if (( params.BUILD_TARGET == "Apple" ) || ( params.BUILD_TARGET == "Banana" )){
+                                VERSION_MODEL = 'NSX'
+                            } else if (( params.BUILD_TARGET == "Orange" ) || ( params.BUILD_TARGET == "anything" )){
+                                VERSION_MODEL = 'Nemesis'
                             }
                         }
                         echo "My branch name is now ${BRANCH_NAME}"
