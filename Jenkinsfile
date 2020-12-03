@@ -7,11 +7,11 @@ pipeline {
     environment {
         ENVIRONMENT_BUILD = "EMPTY_BUILD"
 
-        VERSION_FILE = "BALNK"
         VERSION_MODEL = "Naiad"
         VERSION_MAJOR = "1"
         VERSION_MINOR = "0"
         VERSION_NUMBER = "${BUILD_NUMBER}"
+        VERSION_BUILDTYPE = ""
         LUNCH_BUILD_TYPE = "user"
     }
 
@@ -46,9 +46,16 @@ pipeline {
                             } else if ("${BRANCH_NAME}" == 'develop'){
                                 ENVIRONMENT_BUILD = 'staging'
                             }
+
+                            if ( "${params.BUILD_TARGET}" == "Apple" ) || ( "${params.BUILD_TARGET}" == "Banana" ) {
+                                env.VERSION_MODEL = "NAIAD"
+                            } else if ( "${params.BUILD_TARGET}" == "Orange" ) || ( "${params.BUILD_TARGET}" == "hubble_factory" ) {
+                                env.VERSION_MODEL = "Hubble"
+                            }
                         }
                         echo "My branch name is now ${BRANCH_NAME}"
                         echo "My environment build is ${ENVIRONMENT_BUILD}"
+                        echo "My version model is now ${VERSION_MODEL}"
                     }
                 }
                 stage('Setup build configuration') {
