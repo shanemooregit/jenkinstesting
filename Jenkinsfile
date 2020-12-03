@@ -49,7 +49,7 @@ pipeline {
 
                             if (( "${params.BUILD_TARGET}" == "Apple" ) || ( "${params.BUILD_TARGET}" == "Banana" )) {
                                 env.VERSION_MODEL = "NAIAD"
-                            } else if ( "${params.BUILD_TARGET}" == "Orange" ) && ( "${params.BUILD_TARGET}" == "hubble_factory" ) {
+                            } else if (( "${params.BUILD_TARGET}" == "Orange" ) || ( "${params.BUILD_TARGET}" == "hubble_factory" )) {
                                 env.VERSION_MODEL = "Hubble"
                             }
                         }
