@@ -55,7 +55,7 @@ pipeline {
                         }
                         echo "My branch name is now ${BRANCH_NAME}"
                         echo "My environment build is ${ENVIRONMENT_BUILD}"
-                        echo "My version model is now ${VERSION_MODEL}"
+                        //echo "My version model is now ${VERSION_MODEL}"
                     }
                 }
                 stage('JSON file testing') {
