@@ -60,6 +60,7 @@ pipeline {
                 }
                 stage('JSON file testing') {
                     steps {
+                        echo "Doing some testing"
                         script {
                             def jsonObj = readJSON file: './buildConfig.json'
                             print jsonObj
