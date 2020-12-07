@@ -3,7 +3,7 @@
     "Apple": {
       "manifest_branch": "master-p",
       "device": "AppleDevice",
-      "burning_OTA_name": "Apple",
+      "burning_OTA_name": "AppleOTA",
       "versionModel": "Apple",
       "packages": [
         {
@@ -21,7 +21,7 @@
     "Banana": {
       "manifest_branch": "master-banana",
       "device": "bananaDevice",
-      "burning_OTA_name": "Banana",
+      "burning_OTA_name": "BananaOTA",
       "versionModel": "Banana",
       "packages": [
         {
