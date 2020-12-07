@@ -6,8 +6,8 @@ pipeline {
     }
     environment {
         ENVIRONMENT_BUILD = "EMPTY_BUILD"
-        VERSION_FILE = "blank"
-        VERSION_MODEL = "TBCMODEL"
+        VERSION_FILE = "version.txt"
+        VERSION_MODEL = ""
         VERSION_MAJOR = "1"
         VERSION_MINOR = "0"
         VERSION_NUMBER = "${BUILD_NUMBER}"
@@ -47,11 +47,11 @@ pipeline {
                                 ENVIRONMENT_BUILD = 'staging'
                             }
 
-                            if (( params.BUILD_TARGET == "Apple" ) || ( params.BUILD_TARGET == "Banana" )){
-                                VERSION_MODEL = 'NSX'
-                            } else if (( params.BUILD_TARGET == "Orange" ) || ( params.BUILD_TARGET == "anything" )){
-                                VERSION_MODEL = 'Nemesis'
-                            }
+                           // if (( params.BUILD_TARGET == "Apple" ) || ( params.BUILD_TARGET == "Banana" )){
+                           //     VERSION_MODEL = 'NSX'
+                            //} else if (( params.BUILD_TARGET == "Orange" ) || ( params.BUILD_TARGET == "anything" )){
+                            //    VERSION_MODEL = 'Nemesis'
+                            //}
                         }
                         echo "My branch name is now ${BRANCH_NAME}"
                         echo "My environment build is ${ENVIRONMENT_BUILD}"
