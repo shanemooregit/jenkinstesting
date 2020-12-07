@@ -4,7 +4,7 @@
       "manifest_branch": "master-p",
       "device": "AppleDevice",
       "burning_OTA_name": "Apple",
-      "versionModel" : "Apple",
+      "versionModel": "Apple",
       "packages": [
         {
           "name": "org.mozilla.rocket.firefoxlite.apk",
@@ -22,7 +22,7 @@
       "manifest_branch": "master-banana",
       "device": "bananaDevice",
       "burning_OTA_name": "Banana",
-      "versionModel" : "Banana",
+      "versionModel": "Banana",
       "packages": [
         {
           "name": "org.mozilla.rocket.firefoxlite.apk",
