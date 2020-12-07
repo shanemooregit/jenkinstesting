@@ -1,8 +1,10 @@
 {
   "build": {
-    "product": {
+    "Apple": {
       "manifest_branch": "master-p",
-      "device": "product1",
+      "device": "AppleDevice",
+      "burning_OTA_name": "Apple",
+      "versionModel" : "Apple",
       "packages": [
         {
           "name": "org.mozilla.rocket.firefoxlite.apk",
@@ -11,6 +13,24 @@
         },
         {
           "name": "com.second.test.product.apk",
+          "location": "directory/folder/structure/ENVIRONMENT_BUILD/com/second/test/product",
+          "version": "latest"
+        }
+      ]
+    },
+    "Banana": {
+      "manifest_branch": "master-banana",
+      "device": "bananaDevice",
+      "burning_OTA_name": "Banana",
+      "versionModel" : "Banana",
+      "packages": [
+        {
+          "name": "org.mozilla.rocket.firefoxlite.apk",
+          "location": "directory/folder/structure/ENVIRONMENT_BUILD/org.mozilla.rocket/firefoxlite",
+          "version": "latest"
+        },
+        {
+          "name": "com.second.banana.product.apk",
           "location": "directory/folder/structure/ENVIRONMENT_BUILD/com/second/test/product",
           "version": "latest"
         }
