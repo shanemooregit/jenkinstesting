@@ -7,7 +7,6 @@ pipeline {
     environment {
         ENVIRONMENT_BUILD = "EMPTY_BUILD"
         VERSION_FILE = "version.txt"
-        VERSION_MODEL = ""
         VERSION_MAJOR = "1"
         VERSION_MINOR = "0"
         VERSION_NUMBER = "${BUILD_NUMBER}"
