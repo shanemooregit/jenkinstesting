@@ -1,4 +1,6 @@
 #!/bin/bash 
+set -xeo
+printenv
 
 	if [ "$2" != "" ]; then
 		MAJOR_NUM=$2
