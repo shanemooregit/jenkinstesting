@@ -86,6 +86,7 @@ pipeline {
                         echo "zip file testing with flasher env"
                         sh label: "zip testy",
                             script: """
+                                docker ps -a
                                 jq --version
                                 touch "${VERSION_MODEL}-${VERSION_MAJOR}-${VERSION_MINOR}-${BUILD_NUMBER}.txt"
                                 pwd
