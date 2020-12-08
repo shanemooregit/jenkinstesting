@@ -84,22 +84,23 @@ pipeline {
                 stage('Zip file testing') {
                     steps {
                         echo "zip file testing with flasher env"
-                        script: """
-                            touch "testfile1.txt"
-                            touch "testfile2.txt"
-                            zip "${VERSION_MODEL}-${VERSION_MAJOR}-${VERSION_MINOR}-${BUILD_NUMBER}".zip testfile1.txt testfile2.txt
-                            ls -lah
+                        sh  label: "zip testy",
+                            script: """
+                                touch "testfile1.txt"
+                                touch "testfile2.txt"
+                                zip "${VERSION_MODEL}-${VERSION_MAJOR}-${VERSION_MINOR}-${BUILD_NUMBER}".zip testfile1.txt testfile2.txt
+                                ls -lah
 
-                            FLASHER="/ota/target/testdir/REL*.zip"
-                            NEWFLASHER="/ota/target/testdir/${VERSION_MODEL}*.zip"
-                            mkdir "newdir"
-                            ls -lah
-                            cp "./${VERSION_MODEL}*.zip" "./newdir/"
-                            ls -lah
+                                FLASHER="/ota/target/testdir/REL*.zip"
+                                NEWFLASHER="/ota/target/testdir/${VERSION_MODEL}*.zip"
+                                mkdir "newdir"
+                                ls -lah
+                                cp "./${VERSION_MODEL}*.zip" "./newdir/"
+                                ls -lah
 
-                            echo "${FLASHER}"
-                            echo "${NEWFLASHER}"
-                        """
+                                echo "${FLASHER}"
+                                echo "${NEWFLASHER}"
+                            """
                     }
                 }
                 stage('Replacement buildconfig variables') {
