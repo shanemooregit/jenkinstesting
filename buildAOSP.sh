@@ -20,14 +20,14 @@ create_version_file()
     ./versionnumber.sh ${VERSION_FILE} ${VERSION_MAJOR} ${VERSION_MINOR} ${BUILD_NUMBER} ${VERSION_MODEL} ${LUNCH_BUILD_TYPE}
 }
 
-while getopts c:n:rt opt
+while getopts c:nrt opt
 do
   case $opt in
     c)  # config file
         CONFIG_FILE=$OPTARG
         ;;
     n)  # create version file
-        ACTION=create_version_file
+        create_version_file
         ;;
     r)  # repo sync
         repo_sync
