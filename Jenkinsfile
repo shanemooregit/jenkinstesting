@@ -95,9 +95,10 @@ pipeline {
                                 NEWFLASHER="./${VERSION_MODEL}*.zip"
                                 mkdir "newdir"
                                 ls -lah
-                                cp ./${VERSION_MODEL}*.zip ./newdir/
+                                cp ./${VERSION_MODEL}*.txt ./newdir/
                                 ls -lah
-
+                                cd ./newdir/
+                                ls -lah
                                 echo \$FLASHER
                                 echo \$NEWFLASHER
                             """
