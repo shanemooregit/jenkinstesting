@@ -90,12 +90,13 @@ pipeline {
                                 touch "testfile2.txt"
                                 zip "${VERSION_MODEL}-${VERSION_MAJOR}-${VERSION_MINOR}-${BUILD_NUMBER}".zip testfile1.txt testfile2.txt
                                 ls -lah
+                                pwd
 
-                                FLASHER=/ota/target/testdir/REL*.zip
-                                NEWFLASHER=/ota/target/testdir/${VERSION_MODEL}*.zip
+                                FLASHER=./REL*.zip
+                                NEWFLASHER=./${VERSION_MODEL}*.zip
                                 mkdir "newdir"
                                 ls -lah
-                                cp "./${VERSION_MODEL}*.zip" "./newdir/"
+                                cp ./${VERSION_MODEL}*.zip ./newdir/
                                 ls -lah
 
                                 echo "${FLASHER}"
