@@ -1,7 +1,7 @@
 #!/bin/bash 
-#set -xeo
-#printenv
-
+set -x
+printenv
+echo "\033[32m Green \033[0m"
 	if [ "$2" != "" ]; then
 		MAJOR_NUM=$2
 	else
