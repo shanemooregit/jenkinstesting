@@ -75,7 +75,8 @@ pipeline {
                             env.VERSION_MODEL = jsonObj['build'][params.BUILD_TARGET]['versionModel']
                             echo "My version model is now ${VERSION_MODEL}"
 
-                            
+                            env.BUILD = jq .build."${BUILD_TARGET}" buildConfig.json
+                            echo "My bulld is now ${BUILD}"
                         }
                     }
                 }
