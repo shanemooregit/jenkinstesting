@@ -1,6 +1,8 @@
 #!/bin/bash
 #set -x
 printenv
+echo $MANIFEST_BRANCH
+
 export MANIFEST_BRANCH=naiad-master-p
 
 repo_sync()
