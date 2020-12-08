@@ -93,7 +93,7 @@ pipeline {
                                 pwd
                                 FLASHER="./REL*.zip"
                                 NEWFLASHER="./${VERSION_MODEL}*.zip"
-                                mkdir "newdir"
+                                mkdir newdir
                                 ls -lah
                                 cp ./${VERSION_MODEL}*.txt ./newdir/
                                 ls -lah
