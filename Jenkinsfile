@@ -86,6 +86,7 @@ pipeline {
                         echo "zip file testing with flasher env"
                         sh label: "zip testy",
                             script: """
+                                jq --version
                                 touch "${VERSION_MODEL}-${VERSION_MAJOR}-${VERSION_MINOR}-${BUILD_NUMBER}.txt"
                                 pwd
                                 ls -lah
@@ -99,7 +100,9 @@ pipeline {
                 stage('Replacement buildconfig variables') {
                     steps {
                         sh label: "check versions",
-                            script: """
+                            script: """#
+                                ls -lah
+                                pwd
                                 jq --version
                                 jq '.build.product' buildConfig.json | sed -i "s/ENVIRONMENT_BUILD/$ENVIRONMENT_BUILD/g" buildConfig.json
                             """
