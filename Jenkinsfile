@@ -88,7 +88,7 @@ pipeline {
                             script: """
                                 touch "testfile1.txt"
                                 touch "testfile2.txt"
-                                zip "${VERSION_MODEL}-${VERSION_MAJOR}-${VERSION_MINOR}-${BUILD_NUMBER}".zip testfile1.txt testfile2.txt
+                                zip ""${VERSION_MODEL}"-"${VERSION_MAJOR}"-"${VERSION_MINOR}"-"${BUILD_NUMBER}".zip" testfile1.txt testfile2.txt
                                 ls -lah
                                 pwd
                                 FLASHER="./REL*.zip"
