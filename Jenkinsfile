@@ -9,8 +9,6 @@ pipeline {
         VERSION_FILE = "version.txt"
         VERSION_MAJOR = "1"
         VERSION_MINOR = "0"
-        VERSION_NUMBER = "${BUILD_NUMBER}"
-        VERSION_BUILDTYPE = ""
         LUNCH_BUILD_TYPE = "user"
     }
 
@@ -118,11 +116,19 @@ pipeline {
                             """
                     }
                 }
-                stage('Do the versioning numbering stuff') {
+                stage('BuildAOSP - Versioning') {
                     steps {
                         sh  label: "Create Version File",
                             script: """
-                                ./versionnumber.sh ${VERSION_FILE} ${VERSION_MAJOR} ${VERSION_MINOR} ${BUILD_NUMBER} ${VERSION_MODEL} ${LUNCH_BUILD_TYPE}
+                                ./buildAOSP.sh -c buildConfig.json -n
+                            """
+                    }
+                }
+                stage('BuildAOSP - Repo Sync') {
+                    steps {
+                        sh  label: "Check repo sync and manifest",
+                            script: """
+                                ./buildAOSP.sh -c buildConfig.json -r
                             """
                     }
                 }
