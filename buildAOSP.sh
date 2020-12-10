@@ -3,11 +3,18 @@
 printenv
 echo "manifest branch at top of file"
 echo $MANIFEST_BRANCH
-
-export MANIFEST_BRANCH=naiad-master-p
+echo "-----------------"
+#export MANIFEST_BRANCH=naiad-master-p
 
 repo_sync()
 {
+    if [ -z "$MANIFEST_BRANCH" ]; then
+        echo "Manuifest branch is empyy"
+        MANIFEST_BRANCH=$(jq -r .build.${BUILD}.manifest_branch ${CONFIG_FILE})
+        echo "Manifest branch has been set to $MANIFEST_BRANCH"
+    else
+        echo "manifest branch is not empty"
+    fi
     echo $MANIFEST_BRANCH
     echo $CONFIG_FILE
     echo $BUILD
