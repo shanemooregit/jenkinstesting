@@ -66,8 +66,8 @@ pipeline {
                             env.DEVICE = jsonObj['build'][params.BUILD_TARGET]['device']
                             echo "device is ${DEVICE}"
                             // set manifest branch
-                            //env.MANIFEST_BRANCH = jsonObj['build'][params.BUILD_TARGET]['manifest_branch']
-                            //echo "manifest branch is ${MANIFEST_BRANCH}"
+                            env.MANIFEST_BRANCH = jsonObj['build'][params.BUILD_TARGET]['manifest_branch']
+                            echo "manifest branch is ${MANIFEST_BRANCH}"
                             // Set burn-in OTA file name
                             env.BURNING_OTA_NAME = jsonObj['build'][params.BUILD_TARGET]['burning_OTA_name']
                             echo "burning ota name is ${BURNING_OTA_NAME}"
