@@ -1,6 +1,7 @@
 #!/bin/bash
 #set -x
 printenv
+echo "manifest branch at top of file"
 echo $MANIFEST_BRANCH
 
 export MANIFEST_BRANCH=naiad-master-p
