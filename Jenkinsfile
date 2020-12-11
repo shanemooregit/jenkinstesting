@@ -90,7 +90,7 @@ pipeline {
                         echo "zip file testing with flasher env"
                         sh label: "zip testy",
                             script: """
-                                docker ps -a
+                                echo "spare space"
                             """
                     }
                 }
