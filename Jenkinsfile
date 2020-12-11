@@ -90,6 +90,7 @@ pipeline {
                         echo "zip file testing with flasher env"
                         sh label: "zip testy",
                             script: """
+                                pwd
                                 touch "testfile1.txt"
                                 touch "testfile2.txt"
                                 zip "${VERSION_MODEL}-${VERSION_MAJOR}-${VERSION_MINOR}-${BUILD_NUMBER}".zip testfile1.txt testfile2.txt
@@ -97,8 +98,6 @@ pipeline {
                                 FLASHER="/ota/target/testdir/REL*.zip"
                                 NEWFLASHER="/ota/target/testdir/${VERSION_MODEL}*.zip"
                                 mkdir "newdir"
-                                ls -lah
-                                cp "./${VERSION_MODEL}*.zip" "./newdir/"
                                 ls -lah
                             """
                     }
