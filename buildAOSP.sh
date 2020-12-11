@@ -15,7 +15,6 @@ repo_sync()
     else
         echo "manifest branch is not empty"
     fi
-    echo $MANIFEST_BRANCH
     echo $CONFIG_FILE
     echo $BUILD
     #MANIFEST_BRANCH=$(jq -r .build.${BUILD}.manifest_branch ${CONFIG_FILE})
