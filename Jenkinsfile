@@ -52,10 +52,12 @@ pipeline {
                             //} else if (( params.BUILD_TARGET == "Orange" ) || ( params.BUILD_TARGET == "anything" )){
                             //    VERSION_MODEL = 'Nemesis'
                             //}
+                            sleep 30
                         }
                         echo "My branch name is now ${BRANCH_NAME}"
                         echo "My environment build is ${ENVIRONMENT_BUILD}"
                         //echo "My version model is now ${VERSION_MODEL}"
+                        
                     }
                 }
                 stage('JSON file testing') {
