@@ -23,8 +23,10 @@ pipeline {
                     branch 'develop'
                 }
             }
-            agent {
-                docker{
+        }
+        stage('Set the build agent') {
+            agent { 
+                docker {
                     label 'docker-agent'
                     image 'artifacts.navico.com/navico-docker/navico/docker-navico-aosp:latest'
                     alwaysPull true
