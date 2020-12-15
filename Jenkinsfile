@@ -1,7 +1,8 @@
 pipeline {
     //agent { dockerfile true }
     agent {
-        label 'slave'
+       // label 'slave'
+        dockerfile true
     }
     parameters { 
         choice(name: 'BUILD_TARGET', choices: [ 'Banana', 'Apple', 'Orange'], description: 'Select a device to build, this is the name of the build option in buildConfig.json')  // first choice is default
