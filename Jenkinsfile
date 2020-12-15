@@ -105,9 +105,6 @@ pipeline {
                                 sh label: "zip testy",
                                     script: """
                                         pwd
-                                        touch "testfile1.txt"
-                                        touch "testfile2.txt"
-                                        mkdir "newdir"
                                         ls -lah
                                     """
                             }
