@@ -1,8 +1,8 @@
 pipeline {
-    //agent { dockerfile true }
     agent {
-       // label 'slave'
-        dockerfile true
+        label 'slave'
+        //label 'docker-agent'
+        // dockerfile true
     }
     parameters { 
         choice(name: 'BUILD_TARGET', choices: [ 'Banana', 'Apple', 'Orange'], description: 'Select a device to build, this is the name of the build option in buildConfig.json')  // first choice is default
@@ -26,17 +26,17 @@ pipeline {
             }
             stages {
                 stage('Set the build agent') {
-                //    agent { 
-                //        docker {
-                //            label 'docker-agent'
-                //            image 'artifacts.navico.com/navico-docker/navico/docker-navico-aosp:latest'
-                //            alwaysPull true
-                //            reuseNode true
+                    //agent { 
+                    //    docker {
+                    //        label 'docker-agent'
+                    //        image 'artifacts.navico.com/navico-docker/navico/docker-navico-aosp:latest'
+                    //        alwaysPull true
+                    //        reuseNode true
                             // As the Agent is already a container the docker plugin adds the "--volumes-from <my-container id> so that the 
                             // workspace is shared to side containers.
                             //args "-u root:root  -v ${env.JENKINS_BUILD_DIR}:${env.JENKINS_BUILD_DIR} --privileged=true"
-                 //       }
-                //    }
+                    //    }
+                    //}
                     stages {
                         stage("Set build name") {
                             steps {
