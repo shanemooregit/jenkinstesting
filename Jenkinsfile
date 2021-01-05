@@ -114,7 +114,7 @@ pipeline {
                                 sh label: "check versions",
                                     script: '''
                                         #!/bin/bash
-                                        set -xeo pipefail
+                                        set -xeu
                                         ls -lah
                                         pwd
                                         jq --version
