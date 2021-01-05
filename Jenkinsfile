@@ -112,12 +112,14 @@ pipeline {
                         stage('Replacement buildconfig variables') {
                             steps {
                                 sh label: "check versions",
-                                    script: """#
+                                    script: '''
+                                        #!/bin/bash
+                                        set -xeo pipefail
                                         ls -lah
                                         pwd
                                         jq --version
                                         jq '.build.product' buildConfig.json | sed -i "s/ENVIRONMENT_BUILD/$ENVIRONMENT_BUILD/g" buildConfig.json
-                                    """
+                                    '''
                             }
                         }
                         stage('Check the environment for change') {
