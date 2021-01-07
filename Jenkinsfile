@@ -112,9 +112,8 @@ pipeline {
                         stage('Replacement buildconfig variables') {
                             steps {
                                 sh label: "check versions",
-                                    script: '''
-                                        #!/bin/bash
-                                        set -xeu
+                                    script: '''#!/bin/bash
+                                        set -xeu -o pipefail
                                         ls -lah
                                         pwd
                                         jq --version
