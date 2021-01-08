@@ -49,7 +49,7 @@ pipeline {
                         stage('Check and setup variables') {
                             steps {
                                 echo "My branch name is ${BRANCH_NAME}"
-                                echo "My environment build is ${ENVIRONMENT_BUILD}"
+                                //echo "My environment build is ${ENVIRONMENT_BUILD}"
                                 echo "My Build is ${BUILD_TARGET}"
                                 echo "My type is ${BUILD_TYPE}"
                                 sh "pwd"
