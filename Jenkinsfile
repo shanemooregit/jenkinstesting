@@ -68,7 +68,7 @@ pipeline {
                                     //} else if (( params.BUILD_TARGET == "Orange" ) || ( params.BUILD_TARGET == "anything" )){
                                     //    VERSION_MODEL = 'Nemesis'
                                     //}
-                                    sleep 30
+                                    sleep 5
                                 }
                                 echo "My branch name is now ${BRANCH_NAME}"
                                 echo "My environment build is ${ENVIRONMENT_BUILD}"
@@ -98,7 +98,7 @@ pipeline {
 
                                     env.BUILD = "${BUILD_TARGET}"
                                     echo "My bulld is now ${BUILD}"
-                                    jq --version
+                                    sh "jq --version"
                                 }
                             }
                         }
@@ -116,7 +116,7 @@ pipeline {
                             steps {
                                 sh label: "check versions",
                                     script: '''#! /bin/bash
-                                        set -xeu -o pipefail
+                                        set -xeu
                                         ls -lah
                                         pwd
                                         jq --version
