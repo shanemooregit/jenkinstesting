@@ -122,6 +122,8 @@ pipeline {
                                         pwd
                                         jq '.build' buildConfig.json
                                         echo "$ENVIRONMENT_BUILD"
+                                        echo "$BUILD"
+                                        echo "$DEVICE"
                                         jq --version
                                         jq '.build' buildConfig.json | sed -i "s/ENVIRONMENT_BUILD/$ENVIRONMENT_BUILD/g" buildConfig.json
                                     '''
