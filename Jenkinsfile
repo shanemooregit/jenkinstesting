@@ -55,7 +55,7 @@ pipeline {
                                 sh "pwd"
                                 sh "ls -lah"
                                 script {
-                                    if ( BRANCH_NAME == 'master') {
+                                    if ( BRANCH_NAME == 'main') {
                                         env.ENVIRONMENT_BUILD = 'release'
                                     } else if ( BRANCH_NAME == 'develop') {
                                         env.ENVIRONMENT_BUILD = 'staging'
