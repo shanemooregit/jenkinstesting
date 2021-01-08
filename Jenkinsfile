@@ -9,7 +9,7 @@ pipeline {
         choice(name: 'BUILD_TYPE', choices: ['cln', 'inc'], description: 'Choose either a clean or incremental build, clean is the default')
     }
     environment {
-        ENVIRONMENT_BUILD = "EMPTY_BUILD"
+        //ENVIRONMENT_BUILD = "EMPTY_BUILD"
         VERSION_FILE = "version.txt"
         VERSION_MAJOR = "1"
         VERSION_MINOR = "0"
