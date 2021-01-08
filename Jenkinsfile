@@ -119,8 +119,9 @@ pipeline {
                                         set -xeu
                                         ls -lah
                                         pwd
+                                        jq '.build' buildConfig.json
                                         jq --version
-                                        jq '.build.product' buildConfig.json | sed -i "s/ENVIRONMENT_BUILD/$ENVIRONMENT_BUILD/g" buildConfig.json
+                                        jq '.build' buildConfig.json | sed -i "s/ENVIRONMENT_BUILD/$ENVIRONMENT_BUILD/g" buildConfig.json
                                     '''
                             }
                         }
@@ -129,7 +130,7 @@ pipeline {
                                 //echo "this is the second step"
                                 sh label: "look at buildconfig",
                                     script: """
-                                        jq '.build.product' buildConfig.json
+                                        jq '.build' buildConfig.json
                                     """
                             }
                         }
