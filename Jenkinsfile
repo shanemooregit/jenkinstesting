@@ -55,11 +55,13 @@ pipeline {
                                 sh "pwd"
                                 sh "ls -lah"
                                 script {
-                                    if ( env.BRANCH_NAME == 'main'){
+                                    if ( BRANCH_NAME == 'master') {
                                         ENVIRONMENT_BUILD = 'release'
-                                    } else if ("${BRANCH_NAME}" == 'develop'){
+                                    } else if ( BRANCH_NAME == 'develop') {
                                         ENVIRONMENT_BUILD = 'staging'
                                     }
+                                    echo "Build is running from the branch ${BRANCH_NAME}"
+                                    echo "My environment build is set to ${ENVIRONMENT_BUILD}"
 
                                 // if (( params.BUILD_TARGET == "Apple" ) || ( params.BUILD_TARGET == "Banana" )){
                                 //     VERSION_MODEL = 'NSX'
@@ -96,6 +98,7 @@ pipeline {
 
                                     env.BUILD = "${BUILD_TARGET}"
                                     echo "My bulld is now ${BUILD}"
+                                    jq --version
                                 }
                             }
                         }
@@ -112,7 +115,7 @@ pipeline {
                         stage('Replacement buildconfig variables') {
                             steps {
                                 sh label: "check versions",
-                                    script: '''#!/bin/bash
+                                    script: '''#! /bin/bash
                                         set -xeu -o pipefail
                                         ls -lah
                                         pwd
