@@ -100,7 +100,7 @@ pipeline {
                                     echo "My bulld is now ${BUILD}"
                                     echo "My environment build is ${ENVIRONMENT_BUILD}"
                                     sh "jq --version"
-                                    sh "jq '.build' buildConfig.json | sed -i ""s/ENVIRONMENT_BUILD/$ENVIRONMENT_BUILD/g"" buildConfig.json"
+                                    sh "jq '.build' buildConfig.json | sed -i 's/ENVIRONMENT_BUILD/$ENVIRONMENT_BUILD/g' buildConfig.json"
                                 }
                             }
                         }
