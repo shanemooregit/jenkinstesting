@@ -56,9 +56,9 @@ pipeline {
                                 sh "ls -lah"
                                 script {
                                     if ( BRANCH_NAME == 'master') {
-                                        ENVIRONMENT_BUILD = 'release'
+                                        env.ENVIRONMENT_BUILD = 'release'
                                     } else if ( BRANCH_NAME == 'develop') {
-                                        ENVIRONMENT_BUILD = 'staging'
+                                        env.ENVIRONMENT_BUILD = 'staging'
                                     }
                                     echo "Build is running from the branch ${BRANCH_NAME}"
                                     echo "My environment build is set to ${ENVIRONMENT_BUILD}"
