@@ -54,7 +54,7 @@ pipeline {
                                 echo "My branch name is ${BRANCH_NAME}"
                                 //echo "My environment build is ${ENVIRONMENT_BUILD}"
                                 echo "My Build is ${BUILD_TARGET}"
-                                echo "My type is ${BUILD_TYPE}"
+                                echo '\e[1;31m My type is ${BUILD_TYPE} \e[1;31m'
                                 sh "pwd"
                                 sh "ls -lah"
                                 script {
@@ -73,7 +73,7 @@ pipeline {
                                     //}
                                     sleep 5
                                 }
-                                echo '\e[1;31m My branch name is now ${BRANCH_NAME} \e[1;31m'
+                                echo 'My branch name is now ${BRANCH_NAME}'
                                 sh "echo -e "\e[1;31m My environment build is ${ENVIRONMENT_BUILD} \e[1;31m""
                                 //echo "My version model is now ${VERSION_MODEL}"
                                 
